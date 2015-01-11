@@ -7,11 +7,8 @@ class WikiConfigTest {
 
   @Test
   def config(): Unit = {
-    WikiGenConfig.password="password"
-    WikiGenConfig.user="user"
-    WikiGenConfig.wikiUrl="url"
-
-    Assert.assertEquals("password",WikiGenConfig.password)
+    val config = new WikiGenConfig("url","user","password")
+    Assert.assertEquals("password",config.getPassword())
   }
 
 
