@@ -1,7 +1,3 @@
 package com.wikigen.config
 
-object WikiGenConfig {
-  var wikiUrl : String = ""
-  var user : String = ""
-  var password : String = ""
-}
+class WikiGenConfig(val wikiUrl : String,val user : String,val password : String)
