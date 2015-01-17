@@ -2,12 +2,15 @@ package com.wikigen.rest.test
 
 import com.wikigen.rest.{HttpConnection, RestClient}
 import org.junit.Assert._
+import org.junit.runner.RunWith
 import org.scalamock.scalatest.MockFactory
 import org.scalatest.FlatSpec
+import org.scalatest.junit.JUnitRunner
 
 /**
  * Created by ysokolov on 1/9/2015.
  */
+@RunWith(classOf[JUnitRunner])
 class RestClientTest extends FlatSpec with MockFactory  {
 
     "Rest Client" should "return JSON object when requested by ID" in {
