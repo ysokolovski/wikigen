@@ -1,5 +1,7 @@
 package com.wikigen.rest
 
+import java.util.logging.{Level, Logger}
+
 import scala.util.parsing.json.JSON
 
 /**
@@ -7,8 +9,12 @@ import scala.util.parsing.json.JSON
  */
 class RestClient (baseUrl:String, connection:HttpConnection) {
 
+  val LOG: Logger = Logger.getLogger("com.wikigen.rest.RestClient")
+
   def get(resourceUri: String) : Map[String,Any] = {
-    val responseBody = connection.get(baseUrl+resourceUri)
+    val uri: String = baseUrl + resourceUri
+    val responseBody = connection.get(uri)
+    LOG.log(Level.INFO,s"GET: $uri")
     val parsed : Some[Map[String,Any]] = JSON.parseFull(responseBody).asInstanceOf[Some[Map[String,Any]]]
     return parsed.get
   }
